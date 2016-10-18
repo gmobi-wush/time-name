@@ -1,0 +1,25 @@
+{
+  "name": "time-name",
+  "version": "0.1.0",
+  "description": "Conversion between time and name",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmobi-wush/time-name.git"
+  },
+  "author": "Wush Wu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmobi-wush/time-name/issues"
+  },
+  "homepage": "https://github.com/gmobi-wush/time-name#readme",
+  "dependencies": {
+    "moment": "^2.15.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  }
+}
