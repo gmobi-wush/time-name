@@ -1,18 +1,23 @@
 var moment = require('moment').utc;
 
-module.exports = {
-	getMinName : function(time) {
+function getName(fmt) {
+	return function(time) {
 		if (!time) time = Date.now();
-		return moment(time).format("YYYY/MM/DD/hh/mm");
-	},
-	parseMinName : function(name) {
-		return moment(name, "YYYY/MM/DD/hh/mm");
-	},
-	getHourName : function(time) {
-		if (!time) time = Date.now();
-		return moment(time).format("YYYY/MM/DD/hh");
-	},
-	parseHourName : function(name) {
-		return moment(name, "YYYY/MM/DD/hh");
-	}
+		return moment(time).format(fmt);
+	};
 }
+
+function parseName(fmt) {
+	return function(name) {
+		return moment(name, fmt);
+	};
+}
+
+module.exports = {
+	getMinName : getName("YYYY/MM/DD/hh/mm"),
+	parseMinName : parseName("YYYY/MM/DD/hh/mm"),
+	getHourName : getName("YYYY/MM/DD/hh"),
+	parseHourName : parseName("YYYY/MM/DD/hh"),
+	getDayName : getName("YYYY/MM/DD"),
+	parseDayName : parseName("YYYY/MM/DD")
+};
