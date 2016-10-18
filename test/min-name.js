@@ -14,11 +14,12 @@ describe("Test MinName", function() {
 		var inputs = [
 			moment("20160101000000", "YYYYMMDDhhmmss"),
 			moment("20160101005900", "YYYYMMDDhhmmss"),
-			moment("20160101235900", "YYYYMMDDhhmmss"),
-			moment(moment().format("YYYYMMDDhhmm"), "YYYYMMDDhhmm")
+			moment("20160101235900", "YYYYMMDDhhmmss")
 		];
 		inputs.forEach(function(input) {
 			assert(input.toDate(), tname.parseMinName(tname.getMinName(input)).toDate());
 		});
+		var now = Date.now();
+		assert(tname.getMinName(now) === tname.getMinName(moment(moment(now).format("YYYYMMDDhhmm"), "YYYYMMDDhhmm")));
 	});
 })
